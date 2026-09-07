@@ -48,8 +48,7 @@ The session runs under `tmux` session name `starter`:
 ├── C2/
 │   ├── Server/
 │   │   ├── Optronic/      # PTZ gimbal & optronic camera trackers
-│   │   ├── RDF/           # Radio Direction Finding protocol bridge
-│   │   └── Tracker/       # Threat analysis & radar packet processing
+│   │   └── RDF/           # Radio Direction Finding protocol bridge
 │   └── Website/           # Tactical map interface and web assets
 ├── Radar Console/         # Node.js backend & telemetry pipeline
 ├── TMMR/                  # Tactical Multi-Mission Radar ASTERIX decoder
