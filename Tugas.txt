@@ -1,0 +1,30 @@
+Qoni :
+>Benerin Lite mode (mapLite.js belum full di import ke HTML (target))
+>System and Networking dirombak, jadinya ada Settingan Network untuk kamera (Proxy)
+ dan TMMR Console (Port Settings), Placeholder berupa box untuk settingan ke Data Center Len nanti.
+>Tombol rekam untuk interceptor
+>Buat font overall lebih tipis dan space lebih besar (sama kaya legend)
+>Assign masih belum permanen
+>bug di assign masih banyak
+udah >Assign target
+udah >Hapus sementara apapun yang berkenaan dengan Yolo dan Tracklist
+udah >Tambahin Warna Ijo ke LEGEND
+udah >Ilangin DefendID di login page 
+udah >Pangkas tombol optronic menjadi cukup : VL, IR, AI Track, Lock AZ, OSD, PTZ, Zoom (VL & IR)
+udah >Pindahin tombol kamera ke atas tanpa expand
+udah >Tombol GPS belom Ijo
+
+Dzikri : 
+[RADAR CONSOLE]>Cross check simulator TMMR (CAT-10) dengan dokumentasi IRS Leonardo
+[RADAR CONSOLE]>Tombol fullscreen jadiin fungsi
+[RADAR CONSOLE]>Jam nya jadiin UTC +7
+[RADAR CONSOLE]>Tambahin logo Len di kiri atas
+
+Hadi :
+>JSON from Radar Console to the Mobile Server is still mismatching due to moving from CAT-048 to CAT-10.
+-Lokasi Radar Dinamis (C2 update lokasi manual ke JS ataupun dari GPS USB langsung ke JS).
+-Pindahin Fitur Fitur ThreatAnalyzer CAT-048 ke radar_backend.js, kecuali fitur classification.
+
+>Right now the JSON (radar tracks) is being recorded directly on the web browser, make it so that the JSON is being recorded on the Radar Console (Start/Stop/Replay).
+
+>Read all the code files, see what ports are being used, list them, neat them into an order and keep a note of the ports.
