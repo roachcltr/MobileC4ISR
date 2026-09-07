@@ -12,6 +12,7 @@ To start all backend microservices, hardware bridges, and the frontend web conso
 chmod +x starter.sh
 ./starter.sh
 ```
+After that's done, open up a browser and type the Server's IP Address (Tailscale, Wifi, LAN, etc.). For C2 Website, the port is 8000. For the Radar Console Website, the port is 8001
 
 ---
 
