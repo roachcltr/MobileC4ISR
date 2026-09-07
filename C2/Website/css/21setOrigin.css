@@ -1,0 +1,128 @@
+/* =========================================
+   21. SET ORIGIN / RADAR RELOCATION MODAL
+   ========================================= */
+
+#coord-modal-overlay {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    background: rgba(5, 7, 10, 0.8); 
+    z-index: 99999;
+    display: none; /* Disembunyikan secara default */
+    align-items: center; 
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    transition: opacity 0.3s ease;
+}
+
+.coord-modal-box {
+    background: linear-gradient(145deg, rgba(15, 23, 42, 0.95) 0%, rgba(10, 13, 18, 0.98) 100%); 
+    border: 1px solid rgba(255,255,255,0.1); 
+    border-top: 3px solid var(--strokeorborder); 
+    border-radius: 20px; 
+    padding: 28px; 
+    width: 420px; /* KUNCI 1: LEBAR DIPERBESAR DARI 340px MENJADI 420px */
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(74, 222, 128, 0.05);
+}
+
+/* Hilangkan Spinner Bawaan Browser */
+.tactical-input::-webkit-inner-spin-button,
+.tactical-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.tactical-input {
+    -moz-appearance: textfield; /* Untuk Firefox */
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 12px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    border-radius: 10px; 
+    outline: none;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+.tactical-input:focus {
+    border-color: var(--strokeorborder);
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.2);
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* =========================================
+   KUNCI 2: DESAIN PANAH TANPA KOTAK (MURNI SIMBOL)
+   ========================================= */
+.custom-spinner-btn {
+    background: transparent; /* Hilangkan kotak background */
+    border: none; /* Hilangkan kotak border */
+    color: rgba(74, 222, 128, 0.4); /* Hijau redup saat diam */
+    width: 24px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0; 
+}
+/* Paksa ukuran panahnya membesar sedikit agar nyaman diklik */
+.custom-spinner-btn svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+/* Efek menyala dan membesar HANYA pada panahnya saat di-hover */
+.custom-spinner-btn:hover {
+    background: transparent;
+    color: var(--strokeorborder); /* Menjadi hijau terang */
+}
+.custom-spinner-btn:hover svg {
+    transform: scale(1.3); /* Panah sedikit membesar */
+    filter: drop-shadow(0 0 3px var(--strokeorborder)); /* Efek glow neon */
+}
+/* Efek saat diklik */
+.custom-spinner-btn:active svg {
+    transform: scale(0.9);
+    color: #ffffff;
+}
+
+/* Tombol Aksi Bawah */
+.coord-btn {
+    flex: 1;
+    padding: 12px;
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 12px;
+}
+.coord-btn.cancel {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    color: #fca5a5;
+}
+.coord-btn.cancel:hover {
+    background: rgba(239, 68, 68, 0.25);
+    border-color: #ef4444;
+    color: #fff;
+}
+.coord-btn.update {
+    background: rgba(74, 222, 128, 0.15);
+    border: 1px solid var(--strokeorborder);
+    color: var(--strokeorborder);
+    box-shadow: 0 4px 10px rgba(74, 222, 128, 0.1);
+}
+.coord-btn.update:hover {
+    background: rgba(74, 222, 128, 0.3);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
+}

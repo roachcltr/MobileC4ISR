@@ -1,0 +1,55 @@
+/* =========================================
+   ABOUT PANEL LINKS
+   ========================================= */
+.about-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e0edff;
+  text-decoration: none;
+  font-size: 11px;
+  transition: all 0.2s ease;
+}
+
+.about-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px var(--glow);
+}
+
+.about-link svg {
+  stroke: var(--strokeorborder);
+  transition: all 0.2s ease;
+}
+
+.about-link:hover svg {
+  stroke: #ffffff;
+  filter: drop-shadow(0 0 5px var(--glow));
+}
+
+/* =========================================
+   LOGOUT / LOCK BUTTON
+   ========================================= */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: rgba(239, 68, 68, 0.3);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+}

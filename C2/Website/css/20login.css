@@ -1,0 +1,102 @@
+/* =========================================
+   20. LOGIN OVERLAY
+   ========================================= */
+#login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(5, 7, 10, 0.85); /* Gelap transparan */
+    backdrop-filter: blur(8px);       /* Efek blur pada peta di belakangnya */
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 99999;                   /* Menutupi SELURUH elemen web */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.login-box {
+    background: rgba(10, 15, 24, 0.95);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    border-top: 3px solid var(--strokeorborder);
+    padding: 40px;
+    border-radius: 4px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(74, 222, 128, 0.1);
+}
+
+.login-logo {
+    max-height: 50px;
+    margin-bottom: 15px;
+}
+
+.login-title {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--strokeorborder);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.login-subtitle {
+    color: #8ba2b5;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-input {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(139, 162, 181, 0.3);
+    padding: 10px 12px;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    border-radius: 3px;
+    outline: none;
+    text-align: center;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+}
+
+.login-input:focus {
+    border-color: var(--strokeorborder);
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.2);
+}
+
+.login-msg {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: bold;
+    min-height: 15px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+.login-submit {
+    background: rgba(74, 222, 128, 0.15);
+    border: 1px solid var(--strokeorborder);
+    color: var(--strokeorborder);
+    padding: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.2s;
+}
+
+.login-submit:hover {
+    background: var(--strokeorborder);
+    color: #000;
+}

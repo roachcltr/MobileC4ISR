@@ -1,0 +1,47 @@
+/* =========================================
+   LITE MODE - Override Khusus Peta
+   (UI tetap menggunakan style normal 3D)
+   ========================================= */
+
+/* Sembunyikan elemen kontrol yang hanya berfungsi di Cesium 3D */
+body.lite-mode .cesium-only {
+  display: none !important;
+}
+
+/* Marker/label track di peta Lite (Leaflet) */
+.track-label-lite {
+  background: rgba(10, 13, 18, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #fff !important;
+  font-family: 'Segoe UI', monospace;
+  font-size: 11px !important;
+  padding: 2px 5px !important;
+}
+
+.track-label-lite::before {
+  display: none !important;
+}
+
+/* =========================================
+   LABEL TITIK TENGAH (PT LEN INDUSTRI)
+   ========================================= */
+.leaflet-tooltip.lite-site-label {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+  font-family: sans-serif;
+  font-size: 14px !important;
+  /* Membuat outline hitam persis seperti Cesium */
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     0px  2px 4px rgba(0,0,0,0.8) !important;
+}
+
+/* Menghilangkan segitiga kecil (panah) bawaan kotak putih Leaflet */
+.leaflet-tooltip.lite-site-label::before {
+  display: none !important;
+}

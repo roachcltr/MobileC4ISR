@@ -1,0 +1,240 @@
+/* =========================================
+   16. CAMERA PANEL & HUD STYLES
+   ========================================= */
+
+#right-camera-panel {
+  width: 480px !important;
+  height: auto !important;
+  max-height: 96vh !important;
+  position: absolute;
+  right: 0;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+  z-index: 100;
+  overflow: visible !important;
+}
+
+#right-camera-panel.closed {
+  transform: translateX(100%);
+}
+
+.camera-body-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: auto; 
+  width: 100%;
+  overflow: hidden; 
+  background: #0a0d12;
+}
+
+.video-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9; 
+  background: #000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--panel);
+  overflow: hidden; 
+}
+
+#optronic-stream {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+  border: none;
+  display: block;
+}
+
+/* =========================================
+   PANEL KONTROL (ULTRA COMPACT UI)
+   ========================================= */
+.hud-overlay {
+  padding: 8px 10px; 
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+.hud-compact-row {
+  display: flex;
+  align-items: stretch; /* KUNCI: Memaksa tinggi blok Kiri & Kanan SAMA PERSIS */
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.hud-left-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px; 
+}
+
+.hud-group {  
+  display: flex; 
+  align-items: center;
+  background: rgba(10, 13, 18, 0.9);
+  padding: 4px; 
+  border-radius: 4px; 
+  border: 1px solid rgba(255,255,255,0.1);
+  pointer-events: auto;
+  backdrop-filter: blur(4px);
+  width: 100%;
+  flex: 1; /* KUNCI: Memaksa 3 baris di kiri mengisi tinggi secara merata */
+}
+
+.hud-group .divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(255,255,255,0.2);
+  margin: 0 4px; 
+}
+
+.hud-btn {
+  flex: 1; 
+  background: transparent; 
+  border: 1px solid transparent; 
+  color: #8ba2b5;
+  font-size: 10px; 
+  font-family: 'Segoe UI', monospace; 
+  font-weight: 600; 
+  padding: 6px 8px;
+  border-radius: 3px; 
+  cursor: pointer; 
+  transition: 0.15s;
+  white-space: nowrap;
+}
+
+.hud-btn:hover { background: rgba(255,255,255,0.1); color: var(--strokeorborder); border: 1px solid var(--strokeorborder); }
+.hud-btn:active { background: var(--strokeorborder); color: #000; transform: scale(0.95); }
+.hud-btn.danger:hover { border-color: #ef4444; color: #ef4444; }
+.hud-btn.danger:active { background: #ef4444; color: #fff; }
+
+/* Pointing Group (D-Pad & Zoom) */
+.pointing-group {
+  display: flex; 
+  flex-direction: row; 
+  justify-content: center;
+  gap: 10px; 
+  align-items: center;
+  background: rgba(10, 13, 18, 0.9); 
+  padding: 8px 12px; 
+  border-radius: 4px; 
+  border: 1px solid rgba(255,255,255,0.1);
+  pointer-events: auto; 
+  backdrop-filter: blur(4px);
+}
+
+/* Mini D-Pad */
+.mini-dpad { display: grid; grid-template-columns: repeat(3, 24px); gap: 3px; }
+.dpad-btn {
+  width: 24px; height: 24px; 
+  background: rgba(20, 26, 35, 0.9);
+  border: 1px solid rgba(255,255,255,0.15); 
+  color: #8ba2b5; border-radius: 3px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: 0.2s; 
+}
+.dpad-btn:hover { background: rgba(255,255,255,0.15); color: #fff; }
+.dpad-btn:active { background: var(--strokeorborder); color: #000; transform: scale(0.95); }
+.dpad-btn.center { border-color: rgba(255,255,255,0.1); color: #8ba2b5; display: flex; align-items: center; justify-content: center; padding: 0; }
+.dpad-btn.center:active { background: #fff; color: #000; }
+
+/* Zoom Controls */
+.mini-zoom-control { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  gap: 4px;
+}
+.mini-zoom-control .hud-btn {
+  flex: none; 
+  width: 22px; /* Dikecilkan lagi untuk tombol + dan - */
+  height: 20px; /* Dikecilkan lagi */
+  padding: 0;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+.zoom-lbl { 
+  font-size: 9px; font-family: 'JetBrains Mono', monospace; color: #000; 
+  font-weight: 800; width: 22px; text-align: center; padding: 3px 0; border-radius: 3px;
+}
+.zoom-lbl.vl { background: #4ade80; }
+.zoom-lbl.ir { background: #38bdf8; }
+
+/* =========================================
+   Mode Fullscreen (Maximized - Native)
+   ========================================= */
+#right-camera-panel.maximized {
+  background: #000; 
+  border: none !important;
+  border-radius: 0 !important;
+}
+#right-camera-panel.maximized .camera-panel-header { display: none !important; }
+#right-camera-panel.maximized .camera-body-wrapper { height: 100% !important; overflow: hidden; }
+#right-camera-panel.maximized .video-wrapper { height: 100% !important; }
+
+#right-camera-panel.maximized .hud-overlay {
+  position: absolute; 
+  bottom: 20px; left: 0; width: 100%; height: auto; 
+  background: transparent; border: none; padding: 0; 
+  z-index: 10; pointer-events: none; 
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex; justify-content: center;
+}
+#right-camera-panel.maximized .hud-compact-row { pointer-events: auto; }
+#right-camera-panel.maximized .hud-overlay.collapsed { transform: translateY(calc(100% + 20px)); }
+
+.fs-hud-toggle { display: none; }
+#right-camera-panel.maximized .fs-hud-toggle {
+  display: flex; position: absolute; top: -23px; left: 50%; transform: translateX(-50%);
+  width: 70px; height: 24px; background: rgba(10, 13, 18, 0.35); 
+  border: 1px solid rgba(255, 255, 255, 0.15); border-bottom: none; border-radius: 8px 8px 0 0;
+  align-items: center; justify-content: center; color: #8ba2b5; cursor: pointer;
+  backdrop-filter: blur(6px); transition: all 0.2s ease; pointer-events: auto;
+}
+#right-camera-panel.maximized .fs-hud-toggle:hover { color: #4ade80; }
+#right-camera-panel.maximized .hud-overlay.collapsed .fs-hud-toggle svg { transform: rotate(180deg); }
+
+#right-camera-panel.maximized .hud-compact-row {
+  flex-direction: row !important; align-items: stretch !important; justify-content: center !important;
+  gap: 0 !important; background: rgba(10, 13, 18, 0.35) !important; 
+  border: 1px solid rgba(255, 255, 255, 0.15) !important; border-radius: 8px !important;
+  padding: 0 !important; width: max-content !important; max-width: 98vw !important; 
+  margin: 0 auto !important; backdrop-filter: blur(6px); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+#right-camera-panel.maximized .hud-left-block {
+  flex-direction: row !important; flex-wrap: nowrap !important; 
+  justify-content: center !important; align-items: stretch !important; gap: 0 !important;
+}
+
+#right-camera-panel.maximized .hud-left-block .hud-group,
+#right-camera-panel.maximized .pointing-group {
+  background: transparent !important; border: none !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important; 
+  border-radius: 0 !important; padding: 8px 12px !important; justify-content: center !important;
+}
+
+#right-camera-panel.maximized .pointing-group { border-right: none !important; }
+
+/* =========================================
+   Toggle Button Active State
+   ========================================= */
+.opt-toggle.active,
+.opt-mode.active {
+  background: rgba(74, 222, 128, 0.15) !important;
+  border-color: var(--strokeorborder) !important;
+  color: var(--strokeorborder) !important;
+  box-shadow: inset 0 0 8px rgba(74, 222, 128, 0.3);
+}
+
+/* --- AI Target Overlays --- */
+.ai-target-box { position: absolute; border: 2px solid #0f0; box-sizing: border-box; pointer-events: auto; cursor: crosshair; transition: border-color 0.1s, background-color 0.1s; box-shadow: 0 0 8px rgba(0, 255, 0, 0.4) inset, 0 0 8px rgba(0, 255, 0, 0.4); }
+.ai-target-box:hover { border-color: #ff0; background-color: rgba(255, 255, 0, 0.15); box-shadow: 0 0 8px rgba(255, 255, 0, 0.6) inset, 0 0 8px rgba(255, 255, 0, 0.6); }
+.ai-target-label { position: absolute; top: -22px; left: -2px; background: #0f0; color: #000; font-size: 11px; font-family: monospace; font-weight: bold; padding: 2px 6px; letter-spacing: 1px; }
+.ai-target-box:hover .ai-target-label { background: #ff0; }
