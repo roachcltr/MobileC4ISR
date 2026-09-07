@@ -51,8 +51,8 @@ The session runs under `tmux` session name `starter`:
 │   │   ├── Optronic/      # PTZ gimbal & optronic camera trackers
 │   │   └── RDF/           # Radio Direction Finding protocol bridge
 │   └── Website/           # Tactical map interface and web assets
-├── Radar Console/         # Node.js backend & telemetry pipeline
-├── TMMR/                  # Tactical Multi-Mission Radar ASTERIX decoder
+├── Radar Console/         # Tactical Multi-Mission Radar Console that acts as decoder and tracks filter to send to C2
+├── TMMR/                  # Tactical Multi-Mission Radar ASTERIX CAT-10 Generator
 ├── Tugas.txt              # Task log & operational notes
 └── starter.sh             # Unified tmux startup launcher
 ```
